@@ -1,74 +1,76 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Neer Ranjan | Resume</title>
+    <title>My Resume</title>
     <style>
         body {
+            font-family: Arial;
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #4facfe, #00f2fe);
-            color: white;
-            text-align: center;
+            background: #f4f4f4;
         }
 
         .container {
-            margin-top: 150px;
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
 
         h1 {
-            font-size: 40px;
+            color: #007BFF;
         }
 
-        p {
-            font-size: 18px;
-            margin-bottom: 30px;
+        h2 {
+            border-bottom: 2px solid #007BFF;
+            padding-bottom: 5px;
+        }
+
+        .section {
+            margin-bottom: 20px;
         }
 
         .btn {
-            padding: 12px 25px;
-            font-size: 18px;
-            border: none;
-            border-radius: 25px;
-            background-color: white;
-            color: #007BFF;
-            cursor: pointer;
-            transition: 0.3s;
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
         }
 
         .btn:hover {
-            background-color: #007BFF;
-            color: white;
-        }
-
-        .social {
-            margin-top: 40px;
-        }
-
-        .social a {
-            margin: 0 10px;
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
+            background: #0056b3;
         }
     </style>
 </head>
+
 <body>
 
-    <div class="container">
-        <h1>Hi, I'm Neer Ranjan 👋</h1>
-        <p>Welcome to my professional resume website</p>
+<div class="container">
+    <h1>Neer Ranjan</h1>
+    <p>Email: your@email.com</p>
+    <p>Phone: 1234567890</p>
 
-        <a href="resume.html">
-            <button class="btn">View Resume</button>
-        </a>
-
-        <div class="social">
-            <p>Connect with me:</p>
-            <a href="#">LinkedIn</a> |
-            <a href="#">Instagram</a> |
-            <a href="#">GitHub</a>
-        </div>
+    <div class="section">
+        <h2>Skills</h2>
+        <p>HTML, CSS, JavaScript, C++, Python</p>
     </div>
+
+    <div class="section">
+        <h2>Education</h2>
+        <p>Your College Name</p>
+    </div>
+
+    <div class="section">
+        <h2>Experience</h2>
+        <p>Fresher / Projects</p>
+    </div>
+
+    <a href="index.html" class="btn">⬅ Back to Home</a>
+</div>
 
 </body>
 </html>
