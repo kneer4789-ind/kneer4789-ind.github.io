@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Neer Ranjan Resume Builder</title>
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- PDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI';
+    background: #f4f7fb;
+}
+
+.header {
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    padding: 15px;
+    text-align: center;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.container {
+    display: flex;
+    padding: 20px;
+}
+
+/* LEFT FORM */
+.form {
+    width: 30%;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    width: 48%;
+    padding: 10px;
+    border: none;
+    color: white;
+    background: #007bff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* RIGHT RESUME */
+.resume {
+    width: 70%;
+    margin-left: 20px;
+    background: white;
+    display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* LEFT SIDE */
+.left {
+    width: 35%;
+    background: #1e2a38;
+    color: white;
+    padding: 20px;
+}
+
+.profile {
+    text-align: center;
+}
+
+.profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+/* RIGHT SIDE */
+.right {
+    width: 65%;
+    padding: 20px;
+}
+
+h2 {
+    border-bottom: 2px solid #007bff;
+}
+
+/* TEMPLATE CHANGE */
+.template2 .left {
+    background: #6a11cb;
+}
+.template2 .header {
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">Neer Ranjan Resume Builder 🚀</div>
+
+<div class="container">
+
+<!-- FORM -->
+<div class="form">
+<input type="file" id="image">
+<input type="text" id="name" placeholder="Name">
+<input type="text" id="email" placeholder="Email">
+<input type="text" id="phone" placeholder="Phone">
+<textarea id="skills" placeholder="Skills"></textarea>
+<textarea id="education" placeholder="Education"></textarea>
+<textarea id="experience" placeholder="Experience"></textarea>
+
+<select id="template">
+<option value="1">Template 1</option>
+<option value="2">Template 2</option>
+</select>
+
+<button onclick="generate()">Preview</button>
+<button onclick="downloadPDF()">Download</button>
+</div>
+
+<!-- RESUME -->
+<div class="resume" id="resume">
+
+<div class="left">
+<div class="profile">
+<img id="profileImg" src="">
+<h3 id="rname">Your Name</h3>
+</div>
+
+<h3>Contact</h3>
+<p id="remail"></p>
+<p id="rphone"></p>
+
+<h3>Skills</h3>
+<p id="rskills"></p>
+</div>
+
+<div class="right">
+<h2>Education</h2>
+<p id="reducation"></p>
+
+<h2>Experience</h2>
+<p id="rexperience"></p>
+</div>
+
+</div>
+</div>
+
+<script>
+
+function generate() {
+    document.getElementById("rname").innerText = document.getElementById("name").value;
+    document.getElementById("remail").innerText = document.getElementById("email").value;
+    document.getElementById("rphone").innerText = document.getElementById("phone").value;
+    document.getElementById("rskills").innerText = document.getElementById("skills").value;
+    document.getElementById("reducation").innerText = document.getElementById("education").value;
+    document.getElementById("rexperience").innerText = document.getElementById("experience").value;
+
+    let file = document.getElementById("image").files[0];
+    if(file){
+        let reader = new FileReader();
+        reader.onload = function(){
+            document.getElementById("profileImg").src = reader.result;
+        }
+        reader.readAsDataURL(file);
+    }
+
+    let template = document.getElementById("template").value;
+    let resume = document.getElementById("resume");
+
+    if(template == "2"){
+        resume.classList.add("template2");
+    } else {
+        resume.classList.remove("template2");
+    }
+}
+
+function downloadPDF() {
+    let element = document.getElementById("resume");
+    html2pdf().from(element).save();
+}
+
+</script>
+
+</body>
+</html>
